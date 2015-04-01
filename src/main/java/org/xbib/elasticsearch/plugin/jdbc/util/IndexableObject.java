@@ -105,4 +105,8 @@ public interface IndexableObject {
 
     IndexableObject ignoreNull(boolean ignorenull);
 
+    long version();
+
+    IndexableObject version(long version);
+
 }

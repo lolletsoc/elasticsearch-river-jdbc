@@ -83,6 +83,15 @@ public class PlainIndexableObject implements IndexableObject, ToXContent, Compar
     }
 
     @Override
+    public long version() { return Long.parseLong(meta.get(ControlKeys._version.name())); }
+
+    @Override
+    public IndexableObject version(long version) {
+        meta.put(ControlKeys._type.name(), Long.toString(version));
+        return this;
+    }
+
+    @Override
     public IndexableObject id(String id) {
         meta.put(ControlKeys._id.name(), id);
         return this;
@@ -247,6 +256,7 @@ public class PlainIndexableObject implements IndexableObject, ToXContent, Compar
                 .append(index(), indexableObject.index())
                 .append(type(), indexableObject.type())
                 .append(id(), indexableObject.id())
+                .append(version(), indexableObject.version())
                 .isEquals();
     }
 
@@ -257,6 +267,7 @@ public class PlainIndexableObject implements IndexableObject, ToXContent, Compar
                 .append(index())
                 .append(type())
                 .append(id())
+                .append(version())
                 .toHashCode();
     }
 

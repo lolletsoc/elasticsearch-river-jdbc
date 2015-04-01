@@ -21,11 +21,13 @@ public class IndexableObjectTests {
         IndexableObject a = new PlainIndexableObject()
                 .index("index")
                 .type("type")
-                .id("id");
+                .id("id")
+                .version(1234);
         IndexableObject b = new PlainIndexableObject()
                 .index("index")
                 .type("type")
-                .id("id");
+                .id("id")
+                .version(1234);
         assertEquals(a, b);
     }
 
@@ -34,11 +36,13 @@ public class IndexableObjectTests {
         IndexableObject a = new PlainIndexableObject()
                 .index("index1")
                 .type("type1")
-                .id("id1");
+                .id("id1")
+                .version(1234);
         IndexableObject b = new PlainIndexableObject()
                 .index("index2")
                 .type("type2")
-                .id("id2");
+                .id("id2")
+                .version(1234);
         assertNotEquals(a, b);
     }
 
@@ -50,11 +54,13 @@ public class IndexableObjectTests {
         IndexableObject a = new PlainIndexableObject()
                 .index("my_index")
                 .type("Employee")
-                .id("12055T");
+                .id("12055T")
+                .version(1234);
         IndexableObject b = new PlainIndexableObject()
                 .index("my_index")
                 .type("Employee")
-                .id("120565");
+                .id("120565")
+                .version(1234);
         assertNotEquals(a, b);
     }
 

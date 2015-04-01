@@ -166,7 +166,7 @@ public class PlainKeyValueStreamListener<K, V> implements KeyValueStreamListener
         } else if (ControlKeys._id.name().equals(k)) {
             current.id(v.toString());
         } else if (ControlKeys._version.name().equals(k)) {
-            current.meta(k.toString(), v.toString());
+            current.version(Long.parseLong(v.toString()));
         } else if (ControlKeys._routing.name().equals(k)) {
             current.meta(k.toString(), v.toString());
         } else if (ControlKeys._parent.name().equals(k)) {
